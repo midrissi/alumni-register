@@ -1,0 +1,30 @@
+<h2 class="fs-title">{{views.current.title}}</h2>
+<h3 class="fs-subtitle">{{views.current.subTitle}}</h3>
+<div ng-repeat="e in person.experience" class="form-set">
+	<div class="form-group">
+		<label>Date</label>
+		<input data-ng-disabled="disabled" type="text" class="form-control" placeholder="Date" data-ng-model="e.date">
+	</div>
+	<div class="form-group">
+		<label>Société</label>
+		<input data-ng-disabled="disabled" type="text" class="form-control" placeholder="Société" data-ng-model="e.company">
+	</div>
+	<div class="form-group">
+		<label>Fonction</label>
+		<input data-ng-disabled="disabled" type="text" class="form-control" placeholder="Fonction" data-ng-model="e.role">
+	</div>
+	<div class="form-group">
+		<label>Description</label>
+		<textarea data-ng-disabled="disabled" class="form-control" data-ng-model="a.description" placeholder="Description"></textarea>
+	</div>
+	<div class="form-group">
+		<button data-ng-disabled="disabled" class="btn btn-danger" ng-click="person.experience.splice($index, 1)">
+			<i class="fa fa-trash"></i>
+		</button>
+	</div>
+</div>
+<div>
+	<button data-ng-disabled="disabled" class="btn btn-default" ng-click="person.experience.push({})"><i class="fa fa-plus-circle"></i></button>
+</div>
+<button data-ng-disabled="disabled" class="previous action-button" data-ng-click="previous()">Précédent</button>
+<button data-ng-disabled="disabled" class="previous action-button" data-ng-click="ok()">Sauvegarder</button>

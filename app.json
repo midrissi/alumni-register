@@ -1,0 +1,8 @@
+{
+	"name": "Alumni app",
+	"description": "A simple registration form",
+	"logo": "http://node-js-sample.herokuapp.com/node.svg",
+	"repository": "https://github.com/midrissi/alumni-register.git",
+	"keywords": ["node", "expressjs", "angular", "mongodb"],
+	"image": "heroku/nodejs"
+}

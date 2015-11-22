@@ -1,0 +1,6 @@
+<div class="alert alert-{{i.type}} fade in" ng-repeat="i in items">
+	<button data-dismiss="alert" class="close close-sm" ng-if="i.closable">
+		<i class="fa fa-times"></i>
+	</button>
+	{{i.message}}
+</div>

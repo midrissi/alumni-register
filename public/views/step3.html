@@ -1,0 +1,26 @@
+<h2 class="fs-title">{{views.current.title}}</h2>
+<h3 class="fs-subtitle">{{views.current.subTitle}}</h3>
+<div ng-repeat="a in person.activities" class="form-set">
+	<div class="form-group">
+		<label>Organisme/Association</label>
+		<input type="text" class="form-control" placeholder="Nom de l'organisme/association" data-ng-model="a.organism">
+	</div>
+	<div class="form-group">
+		<label>Projet</label>
+		<input type="text" class="form-control" placeholder="Projet" data-ng-model="a.project">
+	</div>
+	<div class="form-group">
+		<label>Réalisations</label>
+		<textarea class="form-control" data-ng-model="a.realizations" placeholder="Réalisations"></textarea>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-danger" ng-click="person.activities.splice($index, 1)">
+			<i class="fa fa-trash"></i>
+		</button>
+	</div>
+</div>
+<div>
+	<button class="btn btn-default" ng-click="person.activities.push({})"><i class="fa fa-plus-circle"></i></button>
+</div>
+<input type="button" name="previous" class="previous action-button" value="Précédent" data-ng-click="previous()" />
+<input type="button" name="next" class="next action-button" value="Suivant" data-ng-click="next()" />
