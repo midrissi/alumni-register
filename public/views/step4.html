@@ -1,13 +1,9 @@
 <h2 class="fs-title">{{views.current.title}}</h2>
 <h3 class="fs-subtitle">{{views.current.subTitle}}</h3>
-<div ng-repeat="e in person.experience" class="form-set" daya-ng-init="exp=person.experience">
+<div ng-repeat="e in person.experience" class="form-set">
 	<div class="form-group">
-		<label>Mon travail actuel</label>
-		<input type="checkbox" data-ng-model="e.is_current" ng-change="setCurrent(e,person.experience,e.is_current)">
-	</div>
-	<div class="form-group">
-		<label>{{person.experience.c==e?"Depuis":"Date"}}</label>
-		<input date-range-picker type="text" class="form-control" placeholder="Date" data-ng-model="e.date" max="today" options="person.experience.c==e?dRPoptionsSingle:dRPoptions" min="'1979-01-01'">
+		<label>Date</label>
+		<input date-range-picker type="text" class="form-control" placeholder="Date" data-ng-model="e.date" max="today" options="dRPoptions" min="'1979-01-01'">
 	</div>
 	<div class="form-group">
 		<label>Société</label>

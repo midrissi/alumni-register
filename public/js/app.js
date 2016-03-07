@@ -20,25 +20,7 @@
 			separator: ':'
 		};
 
-		$scope.dRPoptionsSingle = {
-			singleDatePicker: true
-		};
-
 		$scope.today = moment(new Date()).format('YYYY-MM-DD');
-
-		$scope.setCurrent = function(one, arr, isCurrent) {
-			if(!Array.isArray(arr)){
-				return;
-			}
-
-			arr.map(function(o) {
-				if(o !== one){
-					o.is_current = false;
-				}
-			});
-
-			arr.c = isCurrent? one: null;
-		};
 
 		var views = $scope.views = [{
 			view: 'views/step1.html',

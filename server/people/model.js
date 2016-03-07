@@ -62,10 +62,9 @@ var schema = new Schema({
 	}],
 	experience: [{
 		company: String,
-		date: String,
+		date: Object,
 		role: String,
-		description: String,
-		is_current: Boolean
+		description: String
 	}]
 });
 
