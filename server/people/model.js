@@ -64,7 +64,8 @@ var schema = new Schema({
 		company: String,
 		date: String,
 		role: String,
-		description: String
+		description: String,
+		is_current: Boolean
 	}]
 });
 

@@ -3,13 +3,42 @@
 (function(app) {
 	app.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
 		$scope.ready = true;
-		
+
 		var p = $scope.person = {
 			activities: [],
 			experience: [],
 			country: 'Maroc'
 		};
+
 		var mailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
+		$scope.dRPoptions = {
+			locale: {
+				cancelLabel: 'Annuler',
+				applyLabel: 'Valider'
+			},
+			separator: ':'
+		};
+
+		$scope.dRPoptionsSingle = {
+			singleDatePicker: true
+		};
+
+		$scope.today = moment(new Date()).format('YYYY-MM-DD');
+
+		$scope.setCurrent = function(one, arr, isCurrent) {
+			if(!Array.isArray(arr)){
+				return;
+			}
+
+			arr.map(function(o) {
+				if(o !== one){
+					o.is_current = false;
+				}
+			});
+
+			arr.c = isCurrent? one: null;
+		};
 
 		var views = $scope.views = [{
 			view: 'views/step1.html',
@@ -121,9 +150,12 @@
 
 		$scope.ok = function() {
 			$scope.disabled = true;
-			$http.post('/api/v1/people', p).then(function () {
+			$http.post('/api/v1/people', p).then(function() {
 				$scope.disabled = false;
 				$scope.views.current = finishView;
+			}, function() {
+				$scope.disabled = false;
+				alert('Une erreur est survenu. Merci de réessayer.');
 			});
 		};
 	}]);
@@ -138,4 +170,4 @@
 			}
 		};
 	});
-})(angular.module('a', ['ngAnimate']))
+})(angular.module('a', ['ngAnimate', 'daterangepicker']))
