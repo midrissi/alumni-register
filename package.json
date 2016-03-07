@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "postinstall": "./node_modules/bower/bin/bower install && ./node_modules/gulp/bin/gulp.js clean && ./node_modules/gulp/bin/gulp.js build"
+    "postinstall": "./node_modules/bower/bin/bower --allow-root install && ./node_modules/gulp/bin/gulp.js clean && ./node_modules/gulp/bin/gulp.js build"
   },
   "author": "Mohamed IDRISSI <med.idrissi@outlook.com>",
   "license": "MIT",

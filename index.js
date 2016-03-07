@@ -18,7 +18,10 @@ mongoose.connect(
 			poolSize: 5
 		},
 		user: process.env.MONGO_USERNAME,
-		pass: process.env.MONGO_PASSWORD
+		pass: process.env.MONGO_PASSWORD,
+		auth: {
+			authdb: process.env.MONGO_AUTHDB || 'admin'
+		}
 	});
 
 app.use(express.static(process.env.NODE_ENV === 'production' ? 'dist' : 'public'));
