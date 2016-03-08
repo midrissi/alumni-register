@@ -62,7 +62,10 @@ var schema = new Schema({
 	}],
 	experience: [{
 		company: String,
-		date: Object,
+		date: {
+			startDate: Date,
+			endDate: Date
+		},
 		role: String,
 		description: String
 	}]

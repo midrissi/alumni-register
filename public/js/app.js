@@ -4,11 +4,7 @@
 	app.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
 		$scope.ready = true;
 
-		var p = $scope.person = {
-			activities: [],
-			experience: [],
-			country: 'Maroc'
-		};
+		var p;
 
 		var mailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
@@ -21,6 +17,11 @@
 		};
 
 		$scope.today = moment(new Date()).format('YYYY-MM-DD');
+		$scope.years = [1979];
+
+		while ($scope.years[0] < (new Date()).getFullYear()) {
+			$scope.years.unshift($scope.years[0] + 1);
+		}
 
 		var views = $scope.views = [{
 			view: 'views/step1.html',
@@ -89,7 +90,16 @@
 			v.messages = [];
 		});
 
-		views.current = views[0];
+		($scope.startOver = function() {
+			p = $scope.person = {
+				activities: [],
+				experience: [],
+				country: 'Maroc',
+				year: $scope.years[1] + ""
+			};
+
+			views.current = views[0];
+		})();
 
 		function lookFor(obj, arr) {
 			if (!Array.isArray(arr)) {
