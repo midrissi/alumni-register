@@ -11,9 +11,11 @@
 		$scope.dRPoptions = {
 			locale: {
 				cancelLabel: 'Annuler',
-				applyLabel: 'Valider'
+				applyLabel: 'Valider',
+				format: 'DD/MM/YYYY'
 			},
-			separator: ':'
+			separator: ':',
+			showDropdowns: true
 		};
 
 		$scope.today = moment(new Date()).format('YYYY-MM-DD');
