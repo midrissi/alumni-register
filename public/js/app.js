@@ -28,7 +28,7 @@
 		var views = $scope.views = [{
 			view: 'views/step1.html',
 			title: 'Infos Générales',
-			subTitle: 'Vos informations basique',
+			subTitle: 'Vos informations basiques',
 			validate: function(p) {
 				if (!p.title) {
 					this.messages.push({
