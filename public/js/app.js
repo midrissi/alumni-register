@@ -81,6 +81,54 @@
 			view: 'views/step4.html',
 			title: 'Expériences Professionnelles',
 			subTitle: 'Vos Expériences Professionnelles'
+		}, {
+			view: 'views/step5.html',
+			title: 'Réseaux sociaux',
+			subTitle: 'Vos profiles sur internet',
+			validate: function(p) {
+				this.messages = [];
+
+				if (p.social.facebook && !/^https\:\/\/(www\.)?facebook\.com/.test(p.social.facebook)) {
+					this.messages.push({
+						message: 'Lien Facebook invalide.',
+						type: 'danger'
+					});
+				}
+
+				if (p.social.linkedin && !/^https\:\/\/(www\.)?linkedin\.com/.test(p.social.linkedin)) {
+					this.messages.push({
+						message: 'Lien LinkedIn invalide.',
+						type: 'danger'
+					});
+				}
+
+				if (p.social.gplus && !/^https\:\/\/plus\.google\.com/.test(p.social.gplus)) {
+					this.messages.push({
+						message: 'Lien Google Plus invalide.',
+						type: 'danger'
+					});
+				}
+
+				if (p.social.twitter && !/^https\:\/\/(www\.)?twitter\.com/.test(p.social.twitter)) {
+					this.messages.push({
+						message: 'Lien Twitter invalide.',
+						type: 'danger'
+					});
+				}
+
+				if (p.social.github && !/^https\:\/\/(www\.)?github\.com/.test(p.social.github)) {
+					this.messages.push({
+						message: 'Lien Github invalide.',
+						type: 'danger'
+					});
+				}
+
+				if (this.messages.length > 0) {
+					return false;
+				}
+
+				return true;
+			}
 		}];
 
 		var finishView = {
@@ -97,7 +145,8 @@
 				activities: [],
 				experience: [],
 				country: 'Maroc',
-				year: $scope.years[1] + ""
+				year: $scope.years[1] + "",
+				social: {}
 			};
 
 			views.current = views[0];
@@ -143,7 +192,14 @@
 		};
 
 		$scope.ok = function() {
+			if (typeof views.current.validate === 'function' &&
+				!views.current.validate(p)) {
+				
+				return false;
+			}
+
 			$scope.disabled = true;
+
 			$http.post('/api/v1/people', p).then(function() {
 				$scope.disabled = false;
 				$scope.views.current = finishView;

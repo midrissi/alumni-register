@@ -1,0 +1,45 @@
+<h2 class="fs-title">{{views.current.title}}</h2>
+<h3 class="fs-subtitle">{{views.current.subTitle}}</h3>
+<messages items="views.current.messages"></messages>
+<div class="form-group">
+	<div class="input-group">
+	<span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+		<input 	type="text"
+				class="form-control"
+				placeholder="Facebook" ng-model="person.social.facebook">
+	</div>
+</div>
+<div class="form-group">
+	<div class="input-group">
+	<span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
+		<input 	type="text"
+				class="form-control"
+				placeholder="LinkedIn" ng-model="person.social.linkedin">
+	</div>
+</div>
+<div class="form-group">
+	<div class="input-group">
+	<span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
+		<input 	type="text"
+				class="form-control"
+				placeholder="Google Plus" ng-model="person.social.gplus">
+	</div>
+</div>
+<div class="form-group">
+	<div class="input-group">
+	<span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+		<input 	type="text"
+				class="form-control"
+				placeholder="Twitter" ng-model="person.social.twitter">
+	</div>
+</div>
+<div class="form-group">
+	<div class="input-group">
+	<span class="input-group-addon"><i class="fa fa-github"></i></span>
+		<input 	type="text"
+				class="form-control"
+				placeholder="Github" ng-model="person.social.github">
+	</div>
+</div>
+<button data-ng-disabled="disabled" class="previous action-button" data-ng-click="previous()">Précédent</button>
+<button data-ng-disabled="disabled" class="previous action-button" data-ng-click="ok()">Sauvegarder</button>

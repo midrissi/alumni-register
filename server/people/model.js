@@ -46,6 +46,13 @@ var schema = new Schema({
 		type: Boolean,
 		default: false
 	},
+	social: {
+		facebook: String,
+		github: String,
+		gplus: String,
+		twitter: String,
+		linkedin: String
+	},
 	company: {
 		activity: String,
 		address: String,
