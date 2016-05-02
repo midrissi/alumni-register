@@ -84,7 +84,7 @@
 		}, {
 			view: 'views/step5.html',
 			title: 'Réseaux sociaux',
-			subTitle: 'Vos profiles sur internet',
+			subTitle: 'Veuillez insérer çi-dessous les liens vers vos profils',
 			validate: function(p) {
 				this.messages = [];
 
@@ -149,7 +149,7 @@
 				social: {}
 			};
 
-			views.current = views[0];
+			views.current = views[4];
 		})();
 
 		function lookFor(obj, arr) {
