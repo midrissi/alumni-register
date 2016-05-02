@@ -149,7 +149,7 @@
 				social: {}
 			};
 
-			views.current = views[4];
+			views.current = views[0];
 		})();
 
 		function lookFor(obj, arr) {
